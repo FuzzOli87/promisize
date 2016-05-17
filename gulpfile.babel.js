@@ -7,7 +7,7 @@ import bumpVersion from 'gulp-bump';
 import runSequence from 'run-sequence';
 import del from 'del';
 import todo from 'gulp-todo';
-import git from './gitStreamed';
+import git from 'gulp-git-streamed-wrapper';
 import fs from 'fs';
 
 /* ************************************************************************* */
@@ -46,7 +46,6 @@ const copy = (fileGlob, destDir) => gulp.src(fileGlob)
 */
 const transpile = (fileGlob, destDir) => {
   const babelRC = JSON.parse(JSON.stringify(getFile('./.babelrc')));
-  console.log('BABELRC', babelRC);
   delete babelRC.sourceMaps;
 
   return gulp.src(fileGlob)
