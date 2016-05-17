@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import 'source-map-support/register';
 
 function defaultResolver(resolve, reject, resultProcessor) {
   function callback(err, data) {
@@ -8,7 +9,6 @@ function defaultResolver(resolve, reject, resultProcessor) {
       let modifiedData;
 
       if (resultProcessor) {
-      console.log('huh', resultProcessor);
         modifiedData = resultProcessor(data);
       }
 
@@ -20,7 +20,6 @@ function defaultResolver(resolve, reject, resultProcessor) {
 }
 
 function createModifiedFn(fn, resultProcessor) {
-  console.log('fn', fn);
   return (...args) => {
     return new Promise((resolve, reject) => {
       const callback = defaultResolver(resolve, reject, resultProcessor);
