@@ -1,6 +1,6 @@
 {
   "name": "promisize",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Converts a function or object function into Promise capable functions",
   "main": "index.js",
   "scripts": {
